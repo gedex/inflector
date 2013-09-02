@@ -3,7 +3,9 @@ Inflector
 
 Inflector pluralizes and singularizes English nouns.
 
-**TODO** Add godoc and build links
+**Documentation:** <http://godoc.org/github.com/gedex/inflector>
+
+**TODO** Add build status badges
 
 ## Basic Usage
 
