@@ -17,8 +17,7 @@ s2 := "octopus"
 fmt.Println(inflector.Pluralize(s2)) // will print "octopuses"
 ~~~
 
-Please see [examples/example.go](./examples/example.go) for a complete example.
-
+Please see [example/example.go](./example/example.go) for a complete example.
 
 ## Credits
 
