@@ -235,10 +235,6 @@ func init() {
 
 // prepare rule, e.g., compile the pattern.
 func prepare(r Rule) error {
-	if v, ok := rules[r]; !ok {
-		return fmt.Errorf("undefined rule %v", v)
-	}
-
 	var reString string
 
 	switch r {
@@ -248,8 +244,6 @@ func prepare(r Rule) error {
 	case Singular:
 		// Merge global uninflected with singularsUninflected
 		rules[r].Uninflected = merge(uninflected, uninflectedSingulars)
-	default:
-		return fmt.Errorf("rule %v doesn`t have uninflected words to merge with the global one", r)
 	}
 
 	// Set InflectorRule.compiledUninflected by joining InflectorRule.Uninflected into

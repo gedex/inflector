@@ -146,6 +146,12 @@ func TestPluralize(t *testing.T) {
 		if s != pt.out {
 			t.Fatalf("Pluralize(%s) = %s want %s", pt.in, s, pt.out)
 		}
+		// Second retrieval should returns the same result.
+		// This is also tests the cache
+		s = Pluralize(pt.in)
+		if s != pt.out {
+			t.Fatalf("Pluralize(%s) = %s want %s", pt.in, s, pt.out)
+		}
 	}
 }
 
@@ -153,6 +159,12 @@ func TestSingularize(t *testing.T) {
 	for i := 0; i < len(singularTests); i++ {
 		pt := singularTests[i]
 		s := Singularize(pt.in)
+		if s != pt.out {
+			t.Fatalf("Singularize(%s) = %s want %s", pt.in, s, pt.out)
+		}
+		// Second retrieval should returns the same result.
+		// This is also tests the cache
+		s = Singularize(pt.in)
 		if s != pt.out {
 			t.Fatalf("Singularize(%s) = %s want %s", pt.in, s, pt.out)
 		}
