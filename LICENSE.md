@@ -25,5 +25,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ----------
 
-Some portion of the source code is taken from modified gh project
-<https://github.com/jingweno/gh>, which is licensed under the MIT license.
+Much of this library was inspired from CakePHP's inflector, a PHP
+framework licensed under MIT license (see CakePHP_LICENSE.txt).
