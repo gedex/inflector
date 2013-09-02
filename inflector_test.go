@@ -1,3 +1,20 @@
+// Copyright 2013 Akeda Bagus <admin@gedex.web.id>. All rights reserved.
+//
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+/*
+Package inflector pluralizes and singularizes English nouns.
+
+There are only two exported functions: `Pluralize` and `Singularize`.
+
+	s := "People"
+	fmt.Println(inflector.Singularize(s)) // will print "Person"
+
+	s2 := "octopus"
+	fmt.Println(inflector.Pluralize(s2)) // will print "octopuses"
+
+*/
 package inflector
 
 import (
