@@ -291,10 +291,12 @@ func merge(a []string, b []string) []string {
 	return result
 }
 
+// Pluralize returns string s in plural form.
 func Pluralize(s string) string {
 	return getInflected(Plural, s)
 }
 
+// Singularize returns string s in singular form.
 func Singularize(s string) string {
 	return getInflected(Singular, s)
 }
