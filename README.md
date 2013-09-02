@@ -6,6 +6,7 @@ Inflector pluralizes and singularizes English nouns.
 **Documentation:** <http://godoc.org/github.com/gedex/inflector>
 
 [![Build Status](https://travis-ci.org/gedex/inflector.png?branch=master)](https://travis-ci.org/gedex/inflector)
+[![Build Status](https://drone.io/github.com/gedex/inflector/status.png)](https://drone.io/github.com/gedex/inflector/latest)
 
 ## Basic Usage
 
