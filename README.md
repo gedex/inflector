@@ -11,7 +11,7 @@ Inflector pluralizes and singularizes English nouns.
 
 ## Basic Usage
 
-There are only two methods: `Pluralize` and `Singularize`.
+There are only two exported functions: `Pluralize` and `Singularize`.
 
 ~~~go
 s := "People"
