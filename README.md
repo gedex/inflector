@@ -5,7 +5,7 @@ Inflector pluralizes and singularizes English nouns.
 
 **Documentation:** <http://godoc.org/github.com/gedex/inflector>
 
-**TODO** Add build status badges
+[![Build Status](https://travis-ci.org/gedex/inflector.png?branch=master)](https://travis-ci.org/gedex/inflector)
 
 ## Basic Usage
 
