@@ -14,7 +14,7 @@ s := "People"
 fmt.Println(inflector.Singularize(s)) // will print "Person"
 
 s2 := "octopus"
-fmt.Println(inflector.Pluralize(s)) // will print "octopuses"
+fmt.Println(inflector.Pluralize(s2)) // will print "octopuses"
 ~~~
 
 Please see [examples/example.go](./examples/example.go) for a complete example.
