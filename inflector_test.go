@@ -9,6 +9,8 @@ import (
 	"testing"
 )
 
+type inflector func(string) string
+
 type inflectorTest struct {
 	in  string
 	out string
@@ -144,34 +146,25 @@ var singularTests = []inflectorTest{
 	{"", ""},
 }
 
-func TestPluralize(t *testing.T) {
-	for i := 0; i < len(pluralTests); i++ {
-		pt := pluralTests[i]
-		s := Pluralize(pt.in)
-		if s != pt.out {
-			t.Fatalf("Pluralize(%s) = %s want %s", pt.in, s, pt.out)
+func checker(t *testing.T, name string, fn inflector, tests []inflectorTest) {
+	for _, n := range tests {
+		s := fn(n.in)
+		if s != n.out {
+			t.Fatalf("%s(%s) = %s want %s", name, n.in, s, n.out)
 		}
-		// Second retrieval should returns the same result.
-		// This is also tests the cache
-		s = Pluralize(pt.in)
-		if s != pt.out {
-			t.Fatalf("Pluralize(%s) = %s want %s", pt.in, s, pt.out)
+		// Second retrieval should return the same result.
+		// This also test the cache
+		s = fn(n.in)
+		if s != n.out {
+			t.Fatalf("%s(%s) = %s want %s", name, n.in, s, n.out)
 		}
 	}
 }
 
+func TestPluralize(t *testing.T) {
+	checker(t, "Pluralize", Pluralize, pluralTests)
+}
+
 func TestSingularize(t *testing.T) {
-	for i := 0; i < len(singularTests); i++ {
-		pt := singularTests[i]
-		s := Singularize(pt.in)
-		if s != pt.out {
-			t.Fatalf("Singularize(%s) = %s want %s", pt.in, s, pt.out)
-		}
-		// Second retrieval should returns the same result.
-		// This is also tests the cache
-		s = Singularize(pt.in)
-		if s != pt.out {
-			t.Fatalf("Singularize(%s) = %s want %s", pt.in, s, pt.out)
-		}
-	}
+	checker(t, "Singularize", Singularize, singularTests)
 }
