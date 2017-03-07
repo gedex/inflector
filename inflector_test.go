@@ -12,159 +12,194 @@ import (
 type inflector func(string) string
 
 type inflectorTest struct {
-	in  string
-	out string
+	in    string
+	out   string
+	match bool
 }
 
 var pluralTests = []inflectorTest{
-	{"categoria", "categorias"},
-	{"house", "houses"},
-	{"powerhouse", "powerhouses"},
-	{"Bus", "Buses"},
-	{"bus", "buses"},
-	{"menu", "menus"},
-	{"news", "news"},
-	{"food_menu", "food_menus"},
-	{"Menu", "Menus"},
-	{"FoodMenu", "FoodMenus"},
-	{"quiz", "quizzes"},
-	{"matrix_row", "matrix_rows"},
-	{"matrix", "matrices"},
-	{"vertex", "vertices"},
-	{"index", "indices"},
-	{"Alias", "Aliases"},
-	{"Aliases", "Aliases"},
-	{"Media", "Media"},
-	{"NodeMedia", "NodeMedia"},
-	{"alumnus", "alumni"},
-	{"bacillus", "bacilli"},
-	{"cactus", "cacti"},
-	{"focus", "foci"},
-	{"fungus", "fungi"},
-	{"nucleus", "nuclei"},
-	{"octopus", "octopuses"},
-	{"radius", "radii"},
-	{"stimulus", "stimuli"},
-	{"syllabus", "syllabi"},
-	{"terminus", "termini"},
-	{"virus", "viri"},
-	{"person", "people"},
-	{"people", "people"},
-	{"glove", "gloves"},
-	{"crisis", "crises"},
-	{"tax", "taxes"},
-	{"wave", "waves"},
-	{"bureau", "bureaus"},
-	{"cafe", "cafes"},
-	{"roof", "roofs"},
-	{"foe", "foes"},
-	{"cookie", "cookies"},
-	{"wolf", "wolves"},
-	{"thief", "thieves"},
-	{"potato", "potatoes"},
-	{"hero", "heroes"},
-	{"buffalo", "buffalo"},
-	{"tooth", "teeth"},
-	{"goose", "geese"},
-	{"foot", "feet"},
-	{"objective", "objectives"},
-	{"", ""},
+	{"categoria", "categorias", true},
+	{"house", "houses", true},
+	{"powerhouse", "powerhouses", true},
+	{"Bus", "Buses", true},
+	{"bus", "buses", true},
+	{"menu", "menus", true},
+	{"news", "news", true},
+	{"food_menu", "food_menus", true},
+	{"Menu", "Menus", true},
+	{"FoodMenu", "FoodMenus", true},
+	{"quiz", "quizzes", true},
+	{"matrix_row", "matrix_rows", true},
+	{"matrix", "matrices", true},
+	{"vertex", "vertices", true},
+	{"index", "indices", true},
+	{"Alias", "Aliases", true},
+	{"Aliases", "Aliases", false},
+	{"Media", "Media", true},
+	{"NodeMedia", "NodeMedia", true},
+	{"alumnus", "alumni", true},
+	{"bacillus", "bacilli", true},
+	{"cactus", "cacti", true},
+	{"focus", "foci", true},
+	{"fungus", "fungi", true},
+	{"nucleus", "nuclei", true},
+	{"octopus", "octopuses", true},
+	{"radius", "radii", true},
+	{"stimulus", "stimuli", true},
+	{"syllabus", "syllabi", true},
+	{"terminus", "termini", true},
+	{"virus", "viri", true},
+	{"person", "people", true},
+	{"people", "people", false},
+	{"glove", "gloves", true},
+	{"crisis", "crises", true},
+	{"tax", "taxes", true},
+	{"wave", "waves", true},
+	{"bureau", "bureaus", true},
+	{"cafe", "cafes", true},
+	{"roof", "roofs", true},
+	{"foe", "foes", true},
+	{"cookie", "cookies", true},
+	{"wolf", "wolves", true},
+	{"thief", "thieves", true},
+	{"potato", "potatoes", true},
+	{"hero", "heroes", true},
+	{"buffalo", "buffalo", true},
+	{"tooth", "teeth", true},
+	{"goose", "geese", true},
+	{"foot", "feet", true},
+	{"objective", "objectives", true},
+	{"specie", "species", false},
+	{"species", "species", true},
+	{"", "", true},
 }
 
 var singularTests = []inflectorTest{
-	{"categorias", "categoria"},
-	{"menus", "menu"},
-	{"news", "news"},
-	{"food_menus", "food_menu"},
-	{"Menus", "Menu"},
-	{"FoodMenus", "FoodMenu"},
-	{"houses", "house"},
-	{"powerhouses", "powerhouse"},
-	{"quizzes", "quiz"},
-	{"Buses", "Bus"},
-	{"buses", "bus"},
-	{"matrix_rows", "matrix_row"},
-	{"matrices", "matrix"},
-	{"vertices", "vertex"},
-	{"indices", "index"},
-	{"Aliases", "Alias"},
-	{"Alias", "Alias"},
-	{"Media", "Media"},
-	{"NodeMedia", "NodeMedia"},
-	{"alumni", "alumnus"},
-	{"bacilli", "bacillus"},
-	{"cacti", "cactus"},
-	{"foci", "focus"},
-	{"fungi", "fungus"},
-	{"nuclei", "nucleus"},
-	{"octopuses", "octopus"},
-	{"radii", "radius"},
-	{"stimuli", "stimulus"},
-	{"syllabi", "syllabus"},
-	{"termini", "terminus"},
-	{"viri", "virus"},
-	{"people", "person"},
-	{"gloves", "glove"},
-	{"doves", "dove"},
-	{"lives", "life"},
-	{"knives", "knife"},
-	{"wolves", "wolf"},
-	{"slaves", "slave"},
-	{"shelves", "shelf"},
-	{"taxis", "taxi"},
-	{"taxes", "tax"},
-	{"Taxes", "Tax"},
-	{"AwesomeTaxes", "AwesomeTax"},
-	{"faxes", "fax"},
-	{"waxes", "wax"},
-	{"niches", "niche"},
-	{"waves", "wave"},
-	{"bureaus", "bureau"},
-	{"genetic_analyses", "genetic_analysis"},
-	{"doctor_diagnoses", "doctor_diagnosis"},
-	{"parantheses", "paranthesis"},
-	{"Causes", "Cause"},
-	{"colossuses", "colossus"},
-	{"diagnoses", "diagnosis"},
-	{"bases", "basis"},
-	{"analyses", "analysis"},
-	{"curves", "curve"},
-	{"cafes", "cafe"},
-	{"roofs", "roof"},
-	{"foes", "foe"},
-	{"databases", "database"},
-	{"cookies", "cookie"},
-	{"thieves", "thief"},
-	{"potatoes", "potato"},
-	{"heroes", "hero"},
-	{"buffalos", "buffalo"},
-	{"babies", "baby"},
-	{"teeth", "tooth"},
-	{"geese", "goose"},
-	{"feet", "foot"},
-	{"objectives", "objective"},
-	{"", ""},
+	{"categorias", "categoria", true},
+	{"menus", "menu", true},
+	{"news", "news", true},
+	{"food_menus", "food_menu", true},
+	{"Menus", "Menu", true},
+	{"FoodMenus", "FoodMenu", true},
+	{"houses", "house", true},
+	{"powerhouses", "powerhouse", true},
+	{"quizzes", "quiz", true},
+	{"Buses", "Bus", true},
+	{"buses", "bus", true},
+	{"matrix_rows", "matrix_row", true},
+	{"matrices", "matrix", true},
+	{"vertices", "vertex", true},
+	{"indices", "index", true},
+	{"Aliases", "Alias", true},
+	{"Alias", "Alias", false},
+	{"Media", "Media", true},
+	{"NodeMedia", "NodeMedia", true},
+	{"alumni", "alumnus", true},
+	{"bacilli", "bacillus", true},
+	{"cacti", "cactus", true},
+	{"foci", "focus", true},
+	{"fungi", "fungus", true},
+	{"nuclei", "nucleus", true},
+	{"octopuses", "octopus", true},
+	{"radii", "radius", true},
+	{"stimuli", "stimulus", true},
+	{"syllabi", "syllabus", true},
+	{"termini", "terminus", true},
+	{"viri", "virus", true},
+	{"people", "person", true},
+	{"gloves", "glove", true},
+	{"doves", "dove", true},
+	{"lives", "life", true},
+	{"knives", "knife", true},
+	{"wolves", "wolf", true},
+	{"slaves", "slave", true},
+	{"shelves", "shelf", true},
+	{"taxis", "taxi", true},
+	{"taxes", "tax", true},
+	{"Taxes", "Tax", true},
+	{"AwesomeTaxes", "AwesomeTax", true},
+	{"faxes", "fax", true},
+	{"waxes", "wax", true},
+	{"niches", "niche", true},
+	{"waves", "wave", true},
+	{"bureaus", "bureau", true},
+	{"genetic_analyses", "genetic_analysis", true},
+	{"doctor_diagnoses", "doctor_diagnosis", true},
+	{"parantheses", "paranthesis", true},
+	{"Causes", "Cause", true},
+	{"colossuses", "colossus", true},
+	{"diagnoses", "diagnosis", true},
+	{"bases", "basis", true},
+	{"analyses", "analysis", true},
+	{"curves", "curve", true},
+	{"cafes", "cafe", true},
+	{"roofs", "roof", true},
+	{"foes", "foe", true},
+	{"databases", "database", true},
+	{"cookies", "cookie", true},
+	{"thieves", "thief", true},
+	{"potatoes", "potato", true},
+	{"heroes", "hero", true},
+	{"buffalos", "buffalo", false},
+	{"babies", "baby", true},
+	{"teeth", "tooth", true},
+	{"geese", "goose", true},
+	{"feet", "foot", true},
+	{"objectives", "objective", true},
+	{"species", "species", true},
+	{"", "", true},
 }
 
-func checker(t *testing.T, name string, fn inflector, tests []inflectorTest) {
-	for _, n := range tests {
-		s := fn(n.in)
-		if s != n.out {
-			t.Fatalf("%s(%s) = %s want %s", name, n.in, s, n.out)
+func TestPluralize(t *testing.T) {
+	for i, test := range pluralTests {
+		s := Pluralize(test.in)
+		if s != test.out {
+			t.Errorf("test %d Pluralize(%s) = %s, expected: %s", i, test.in, s, test.out)
 		}
-		// Second retrieval should return the same result.
-		// This also test the cache
-		s = fn(n.in)
-		if s != n.out {
-			t.Fatalf("%s(%s) = %s want %s", name, n.in, s, n.out)
+
+		// Second retrieval should returns the same result.
+		// This is also tests the cache
+		s = Pluralize(test.in)
+		if s != test.out {
+			t.Errorf("test %d (2) Pluralize(%s) = %s, expected: %s", i, test.in, s, test.out)
 		}
 	}
 }
 
-func TestPluralize(t *testing.T) {
-	checker(t, "Pluralize", Pluralize, pluralTests)
+func TestSingularize(t *testing.T) {
+	for i, test := range singularTests {
+		s := Singularize(test.in)
+		if s != test.out {
+			t.Errorf("test %d Singularize(%s) = %s, expected: %s", i, test.in, s, test.out)
+		}
+
+		// Second retrieval should returns the same result.
+		// This is also tests the cache
+		s = Singularize(test.in)
+		if s != test.out {
+			t.Errorf("test %d (2) Singularize(%s) = %s, expected: %s", i, test.in, s, test.out)
+		}
+	}
 }
 
-func TestSingularize(t *testing.T) {
-	checker(t, "Singularize", Singularize, singularTests)
+func TestReverse(t *testing.T) {
+	for i, test := range pluralTests {
+		if !test.match {
+			continue
+		}
+		s := Singularize(Pluralize(test.in))
+		if s != test.in {
+			t.Errorf("test %d Singularize(Pluralize(%s)) != %s, got: %s", i, test.in, test.in, s)
+		}
+	}
+
+	for i, test := range singularTests {
+		if !test.match {
+			continue
+		}
+		s := Pluralize(Singularize(test.in))
+		if s != test.in {
+			t.Errorf("test %d Pluralize(Singularize(%s)) != %s, got: %s", i, test.in, test.in, s)
+		}
+	}
 }
