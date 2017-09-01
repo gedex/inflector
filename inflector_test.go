@@ -125,7 +125,7 @@ var singularTests = []inflectorTest{
 	{"bureaus", "bureau", true},
 	{"genetic_analyses", "genetic_analysis", true},
 	{"doctor_diagnoses", "doctor_diagnosis", true},
-	{"parantheses", "paranthesis", true},
+	{"parantheses", "parenthesis", true},
 	{"Causes", "Cause", true},
 	{"colossuses", "colossus", true},
 	{"diagnoses", "diagnosis", true},
