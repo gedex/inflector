@@ -166,6 +166,7 @@ func init() {
 			{`tooth`, `teeth`},
 			{`goose`, `geese`},
 			{`foot`, `feet`},
+			{`archive`, `archives`},
 		},
 	}
 	prepare(Plural)
@@ -248,6 +249,7 @@ func init() {
 			{`teeth`, `tooth`},
 			{`geese`, `goose`},
 			{`feet`, `foot`},
+			{`archives`, `archive`},
 		},
 	}
 	prepare(Singular)
