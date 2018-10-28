@@ -12,6 +12,10 @@ Just simply get it from Go
 ```
 go get github.com/gedex/inflector
 ```
+After that, import it to your project
+~~~go
+import "github.com/gedex/inflector"
+~~~
 
 ## Basic Usage
 
