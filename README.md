@@ -7,6 +7,16 @@ Inflector pluralizes and singularizes English nouns.
 [![Coverage Status](https://coveralls.io/repos/gedex/inflector/badge.png?branch=master)](https://coveralls.io/r/gedex/inflector?branch=master)
 [![GoDoc](https://godoc.org/github.com/gedex/inflector?status.svg)](https://godoc.org/github.com/gedex/inflector)
 
+## Installation
+Just simply get it from Go
+```
+go get github.com/gedex/inflector
+```
+After that, import it to your project
+~~~go
+import "github.com/gedex/inflector"
+~~~
+
 ## Basic Usage
 
 There are only two exported functions: `Pluralize` and `Singularize`.
