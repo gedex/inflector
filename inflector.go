@@ -84,7 +84,7 @@ var uninflected = []string{
 // Plural words that should not be inflected
 var uninflectedPlurals = []string{
 	`.*[nrlm]ese`, `.*deer`, `.*fish`, `.*measles`, `.*ois`, `.*pox`, `.*sheep`,
-	`people`,
+	`people`, `children`,
 }
 
 // Singular words that should not be inflected
