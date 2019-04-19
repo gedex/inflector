@@ -7,7 +7,7 @@ package inflector_test
 import (
 	"fmt"
 
-	"github.com/gedex/inflector"
+	"github.com/charm-jp/inflector"
 )
 
 func ExampleSingularize() {
