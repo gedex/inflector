@@ -78,13 +78,13 @@ var uninflected = []string{
 	`rabies`, `rice`, `rhinoceros`, `salmon`, `Sarawakese`, `scissors`,
 	`sea[- ]bass`, `series`, `Shavese`, `shears`, `siemens`, `species`, `swine`,
 	`testes`, `trousers`, `trout`, `tuna`, `Vermontese`, `Wenchowese`, `whiting`,
-	`wildebeest`, `Yengeese`,
+	`wildebeest`, `data`, `Yengeese`,
 }
 
 // Plural words that should not be inflected
 var uninflectedPlurals = []string{
 	`.*[nrlm]ese`, `.*deer`, `.*fish`, `.*measles`, `.*ois`, `.*pox`, `.*sheep`,
-	`people`, `children`,
+	`people`, `children`, `data`,
 }
 
 // Singular words that should not be inflected
