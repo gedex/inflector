@@ -1,8 +1,10 @@
 language: Go
+arch:
+    - amd64
+    - ppc64le
 go:
-    - 1.5.4
-    - 1.6.3
-    - 1.7
+    - 1.14.x
+    - 1.15.x
     - tip
 matrix:
     include:
@@ -18,5 +20,5 @@ install:
 script:
     - go get -t -v ./...
     - diff -u <(echo -n) <(gofmt -d -s .)
-    - go tool vet .
+    - go vet .
     - go test -v -race ./...
